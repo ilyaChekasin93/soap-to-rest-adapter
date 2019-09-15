@@ -13,7 +13,7 @@ import ru.service.adapter.service.CalculatorService;
 public class CalculatorTest {
 
     @Autowired
-    CalculatorService calculatorService;
+    private CalculatorService calculatorService;
 
     @Test
     public void addTest(){
