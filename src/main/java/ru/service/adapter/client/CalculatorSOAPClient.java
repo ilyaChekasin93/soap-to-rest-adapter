@@ -8,10 +8,10 @@ import ru.service.adapter.wsdl.*;
 public class CalculatorSOAPClient extends WebServiceGatewaySupport {
 
     private static final String URI = "http://www.dneonline.com/calculator.asmx";
-    private static final String HTTP_TEMPURI_ORG_ADD = "http://tempuri.org/Add";
-    private static final String HTTP_TEMPURI_ORG_DIVIDE = "http://tempuri.org/Divide";
-    private static final String HTTP_TEMPURI_ORG_MULTIPLY = "http://tempuri.org/Multiply";
-    private static final String HTTP_TEMPURI_ORG_SUBTRACT = "http://tempuri.org/Subtract";
+    private static final String HTTP_TEMP_URI_ORG_ADD = "http://tempuri.org/Add";
+    private static final String HTTP_TEMP_URI_ORG_DIVIDE = "http://tempuri.org/Divide";
+    private static final String HTTP_TEMP_URI_ORG_MULTIPLY = "http://tempuri.org/Multiply";
+    private static final String HTTP_TEMP_URI_ORG_SUBTRACT = "http://tempuri.org/Subtract";
 
 
     public AddResponse add(Add addRequest) {
@@ -19,7 +19,7 @@ public class CalculatorSOAPClient extends WebServiceGatewaySupport {
                 .marshalSendAndReceive(
                         URI,
                         addRequest,
-                        new SoapActionCallback(HTTP_TEMPURI_ORG_ADD)
+                        new SoapActionCallback(HTTP_TEMP_URI_ORG_ADD)
                 );
     }
 
@@ -28,7 +28,7 @@ public class CalculatorSOAPClient extends WebServiceGatewaySupport {
                 .marshalSendAndReceive(
                         URI,
                         divideRequest,
-                        new SoapActionCallback(HTTP_TEMPURI_ORG_DIVIDE)
+                        new SoapActionCallback(HTTP_TEMP_URI_ORG_DIVIDE)
                 );
     }
 
@@ -37,7 +37,7 @@ public class CalculatorSOAPClient extends WebServiceGatewaySupport {
                 .marshalSendAndReceive(
                         URI,
                         multiplyRequest,
-                        new SoapActionCallback(HTTP_TEMPURI_ORG_MULTIPLY)
+                        new SoapActionCallback(HTTP_TEMP_URI_ORG_MULTIPLY)
                 );
     }
 
@@ -46,7 +46,7 @@ public class CalculatorSOAPClient extends WebServiceGatewaySupport {
                 .marshalSendAndReceive(
                         URI,
                         subtractRequest,
-                        new SoapActionCallback(HTTP_TEMPURI_ORG_SUBTRACT)
+                        new SoapActionCallback(HTTP_TEMP_URI_ORG_SUBTRACT)
                 );
     }
 

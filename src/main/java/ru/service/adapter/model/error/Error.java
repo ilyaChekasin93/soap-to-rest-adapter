@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ValidationError {
+public class Error {
 
     private String message;
 

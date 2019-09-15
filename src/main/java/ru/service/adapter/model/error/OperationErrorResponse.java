@@ -10,6 +10,6 @@ import java.util.List;
 @AllArgsConstructor
 public class OperationErrorResponse {
 
-    private List<ValidationError> validationErrors;
+    private List<Error> errors;
 
 }

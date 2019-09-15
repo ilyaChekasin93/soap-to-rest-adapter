@@ -16,6 +16,11 @@ public class OperationRequestValidator implements Validator {
 
     private static final String VALUE_NEGATIVE = "value.negative";
 
+    private static final String FIRST_NUMBER = "firstNumber";
+    private static final String SECOND_NUMBER = "secondNumber";
+
+    private static final String VALUE_EMPTY = "";
+
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -25,21 +30,21 @@ public class OperationRequestValidator implements Validator {
     @Override
     public void validate(Object obj, Errors errors) {
         OperationRequest request = (OperationRequest) obj;
-        fieldValidate("firstNumber", request.getFirstNumber(), errors);
-        fieldValidate("secondNumber", request.getSecondNumber(), errors);
+        fieldValidate(FIRST_NUMBER, request.getFirstNumber(), errors);
+        fieldValidate(SECOND_NUMBER, request.getSecondNumber(), errors);
     }
 
     private void fieldValidate(String fieldName, String fieldValue, Errors errors){
         if (fieldValue == null) {
             errors.rejectValue(fieldName, VALUE_NEGATIVE, VALUE_MUST_NOT_BE_NULL);
-        } else if (fieldValue.equals("")) {
+        } else if (fieldValue.equals(VALUE_EMPTY)) {
             errors.rejectValue(fieldName, VALUE_NEGATIVE, VALUE_CANNOT_BE_EMPTY);
         } else if (!isInteger(fieldValue)) {
             errors.rejectValue(fieldName, VALUE_NEGATIVE, VALUE_SHOULD_HAVE_TYPE_INT);
         }
     }
 
-    private static boolean isInteger(String str)
+    private boolean isInteger(String str)
     {
         try {
             Integer.parseInt(str);

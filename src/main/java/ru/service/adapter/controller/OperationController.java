@@ -1,6 +1,5 @@
 package ru.service.adapter.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
@@ -19,15 +18,17 @@ import javax.validation.Valid;
 @RequestMapping("/calculator")
 public class OperationController {
 
-    @Autowired
-    @Qualifier("operationRequestValidator")
     private Validator requestValidator;
 
-    @Autowired
     private CalculatorService calculatorService;
 
-    @Autowired
     private Mapper mapper;
+
+    public OperationController(CalculatorService calculatorService, Mapper mapper, @Qualifier("operationRequestValidator") Validator requestValidator){
+        this.calculatorService = calculatorService;
+        this.mapper = mapper;
+        this.requestValidator = requestValidator;
+    }
 
     @InitBinder
     protected void initBinder(WebDataBinder binder) {

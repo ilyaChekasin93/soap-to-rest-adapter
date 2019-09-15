@@ -3,7 +3,7 @@ package ru.service.adapter.mapper;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import ru.service.adapter.model.error.ValidationError;
+import ru.service.adapter.model.error.Error;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,13 +11,11 @@ import java.util.stream.Collectors;
 @Component
 public class Mapper {
 
-    public List<ValidationError> objectErrorsToValidationErrors(List<ObjectError> errors){
+    public List<Error> objectErrorsToValidationErrors(List<ObjectError> errors){
         return errors.stream()
-                .map(er -> {
-                    return er instanceof FieldError ?
-                            new ValidationError(((FieldError) er).getField() + " " + er.getDefaultMessage()) :
-                            new ValidationError(er.getDefaultMessage());
-                }).collect(Collectors.toList());
+                .map(error -> error instanceof FieldError ?
+                        new Error(((FieldError) error).getField() + " " + error.getDefaultMessage()) :
+                        new Error(error.getDefaultMessage())).collect(Collectors.toList());
     }
 
 }
