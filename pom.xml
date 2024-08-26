@@ -19,7 +19,7 @@
 
         <lombok.version>1.18.10</lombok.version>
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <swagger.version>2.9.2</swagger.version>
+        <swagger.version>2.10.0</swagger.version>
         <jaxb2.version>0.14.0</jaxb2.version>
         <build.helper.version>3.0.0</build.helper.version>
 
